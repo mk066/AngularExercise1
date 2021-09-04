@@ -1,0 +1,88 @@
+<div class="container-fluid">
+<div class="row">
+    <!-- 1st exer -->
+    <div class="col-xs-12">
+        <h5><i>--Counts string length</i></h5>
+        <p>Enter a string:</p>
+        <input type="text" class="form-control" [(ngModel)]="stringByUser"><br>
+
+        <!-- disable the button and display output -->
+        <button class="btn btn-success" [disabled]="!allowbutton" (click)="afterClick()">OK</button>&nbsp;
+
+        <!-- enable button -->
+        <button class="btn btn-primary" (click)="enableButton()">Enable Button</button>
+
+        <!-- display string entered -->
+        <p *ngIf="enteredString">String entered by user:{{stringSaved}}</p>
+
+        <!-- counts length and display-->
+        <p *ngIf="enteredString">Length:{{stringSaved.length}}</p>
+        
+    </div>
+
+
+    <!-- 2nd exer -->
+    <div class="col-xs-12">
+        <br><h5><i>--Enter name and age and result will be bold letters.(Using Object)</i></h5>
+        <p>Enter your name:</p>
+        <input type="text" class="form-control" [(ngModel)]="nameOfUser">
+
+        <p>Enter your age:</p>
+        <input type="number" class="form-control" min="0" [(ngModel)]="ageOfUser" ><br>
+
+        <!-- call the function after clicking it and hide btn-->
+        <div [hidden]="hideBtn">
+        <button class="btn btn-success" (click)="getNameAge(); hideUnhideBtn(); this.nameOfUser=''; this.ageOfUser=''">OK</button>&nbsp;
+
+        </div>
+
+        <!-- to get the value -->
+        <p *ngFor="let objOutput of obj"><b>{{objOutput.name}} {{objOutput.age}}</b></p>
+
+        <!--unhide btn-->
+        <button class="btn btn-primary" (click)="hideUnhideBtn()">Unhide Button</button>  
+    </div>
+
+
+    <!-- 3rd exer -->
+    <div class="col-xs-12">
+        <br><h5><i>--Enter name and age and result will be bold letters.(Using Array)</i></h5>
+        <p>Enter your name:</p>
+        <input type="text" class="form-control" [(ngModel)]="namearr">
+
+        <p>Enter your age:</p>
+        <input type="number" class="form-control" min="0" [(ngModel)]="agearr" ><br>
+
+        <!-- call the function after clicking it -->
+        <button class="btn btn-success" (click)="getNameAgeArr(); this.namearr=''; this.agearr=''">OK</button>
+
+        <!-- to get the value -->
+        <p *ngFor="let arrOutput of arr"><b>{{arrOutput.name}} {{arrOutput.age}}</b></p>     
+    </div>
+
+
+    <!-- 4th exer -->
+    <div class="col-xs-12">
+        <br><h5><i>--To check number is odd or even. Odd will be in red and even will be in green</i></h5>
+        <p>Enter a number:</p>
+        <input type="number" class="form-control" [(ngModel)]="oddEven"><br>
+
+        <!-- clear input field -->
+        <button class="btn btn-primary" (click)="clearInp()">Clear</button>
+
+        <!-- counts odd or even and decides color -->
+        <br><span [ngStyle]="oddEven%2==0 ? {color:'green'} : {color:'red'}">{{oddEven}}</span>
+
+    </div>
+
+
+    <!-- 5th exer -->
+    <div><br><p appCustomdir>Simple Text <span>Custom Directive </span></p>
+    <p appCustomdir>Simple Text <span>Custom Directive </span>Simple Text <span>Custom Directive </span></p>
+      <p>Simple Text</p>
+    </div>
+
+
+</div>
+</div>
+
